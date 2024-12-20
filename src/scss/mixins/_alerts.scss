@@ -1,0 +1,224 @@
+@import "../variables";
+
+@mixin alert (
+  $iconType,
+  $bgColor,
+  $color
+) {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--alert-font-size);
+  font-weight: var(--alert-font-weight);
+  line-height: var(--alert-line-height);
+  background-color: $bgColor;
+  border-radius: var(--alert-border-radius);
+  padding-left: calc(var(--alert-padding-x) + 16px + 4px);
+  padding-right: var(--alert-padding-x);
+  padding-top: var(--alert-padding-y);
+  padding-bottom: var(--alert-padding-y);
+  min-width: var(--alert-min-width);
+  max-width: var(--alert-max-width);
+  width: fit-content;
+
+  &:before {
+    position: absolute;
+    content: '';
+    background-repeat: no-repeat;
+    background-image: $iconType;
+    width: 16px;
+    height: 16px;
+    left: var(--alert-padding-x);
+    top: calc(50% - 16px/2);
+  }
+
+  span,
+  span.counter {
+    color: $color;
+    font-size: inherit;
+    line-height: inherit;
+    font-weight: var(--alert-counter-font-weight);
+  }
+
+  button.close {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 16px;
+    height: 16px;
+    font-size: 0;
+    padding: 0;
+
+    &:before {
+      position: absolute;
+      content: '';
+      mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'><path fill-rule='evenodd' clip-rule='evenodd' d='M3.14645 3.14645C3.34171 2.95118 3.65829 2.95118 3.85355 3.14645L8 7.29289L12.1464 3.14645C12.3417 2.95118 12.6583 2.95118 12.8536 3.14645C13.0488 3.34171 13.0488 3.65829 12.8536 3.85355L8.70711 8L12.8536 12.1464C13.0488 12.3417 13.0488 12.6583 12.8536 12.8536C12.6583 13.0488 12.3417 13.0488 12.1464 12.8536L8 8.70711L3.85355 12.8536C3.65829 13.0488 3.34171 13.0488 3.14645 12.8536C2.95118 12.6583 2.95118 12.3417 3.14645 12.1464L7.29289 8L3.14645 3.85355C2.95118 3.65829 2.95118 3.34171 3.14645 3.14645Z' fill='white'/></svg>");
+      background-color: $color;
+      width: 16px;
+      height: 16px;
+      left: 0;
+      top: 0;
+    }
+  }
+}
+
+@mixin big-info () {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: var(--alert-big-font-size);
+  line-height: var(--alert-big-line-height);
+  font-weight: var(--alert-big-font-weight);
+  background-color: var(--alert-info-big-bg-color);
+  color: var(--alert-text-color);
+  padding-left: calc(var(--alert-padding-x) + 24px + 8px);
+  padding-right: var(--alert-padding-y);
+  padding-top: var(--alert-big-padding-y);
+  padding-bottom: var(--alert-padding-y);
+
+  button {
+    align-self: flex-end;
+  }
+
+  &:before {
+    position: absolute;
+    content: '';
+    background: var(--alert-info-big-icon) no-repeat;
+    width: 24px;
+    height: 24px;
+    left: var(--alert-padding-x);
+    top: var(--alert-big-padding-y);
+  }
+}
+
+@mixin alert-test (
+  $bgColor,
+  $textColor,
+  $iconColor
+) {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  font-size: var(--alert-big-font-size);
+  line-height: var(--alert-big-line-height);
+  font-weight: var(--alert-big-font-weight);
+  background-color: $bgColor;
+  color: $textColor;
+  border-radius: var(--alert-border-radius);
+  padding: var(--alert-padding-y) var(--alert-padding-x);
+  min-width: var(--alert-min-width);
+  max-width: var(--alert-max-width);
+  width: fit-content;
+
+  &:before {
+    display: none;
+  }
+
+  h1 {
+    font-size: var(--alert-test-title-font-size);
+    font-weight: var(--alert-test-title-font-weight);
+    line-height: var(--alert-test-title-line-height);
+  }
+
+  div.btn-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  button.test {
+    background-color: transparent;
+    border-color: var(--alert-test1-text-color);
+    color: var(--alert-test1-text-color);
+  }
+
+  button.close {
+    position: absolute;
+    align-self: flex-end;
+    width: 16px;
+    height: 16px;
+    font-size: 0;
+    padding: 0;
+
+    &:before {
+      content: '';
+      mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'><path fill-rule='evenodd' clip-rule='evenodd' d='M3.14645 3.14645C3.34171 2.95118 3.65829 2.95118 3.85355 3.14645L8 7.29289L12.1464 3.14645C12.3417 2.95118 12.6583 2.95118 12.8536 3.14645C13.0488 3.34171 13.0488 3.65829 12.8536 3.85355L8.70711 8L12.8536 12.1464C13.0488 12.3417 13.0488 12.6583 12.8536 12.8536C12.6583 13.0488 12.3417 13.0488 12.1464 12.8536L8 8.70711L3.85355 12.8536C3.65829 13.0488 3.34171 13.0488 3.14645 12.8536C2.95118 12.6583 2.95118 12.3417 3.14645 12.1464L7.29289 8L3.14645 3.85355C2.95118 3.65829 2.95118 3.34171 3.14645 3.14645Z' fill='white'/></svg>");
+      background-color: $iconColor;
+      width: 16px;
+      height: 16px;
+      right: 0;
+      top: 0;
+    }
+  }
+}
+
+@mixin tooltip (
+  $bgColor,
+  $textColor,
+  $pointerPosition
+) {
+  position: relative;
+  background-color: $bgColor;
+  color: $textColor;
+  font-size: var(--tooltip-font-size);
+  font-weight: var(--tooltip-font-weight);
+  line-height: var(--tooltip-line-height);
+  padding: var(--tooltip-padding-y) var(--tooltip-padding-x);
+  border-radius: var(--tooltip-border-radius);
+  width: fit-content;
+
+  @if ($pointerPosition == 'right') {
+    margin-right: 8px
+  } @else if ($pointerPosition == 'left') {
+    margin-left: 8px
+  }
+
+  &:before {
+    position: absolute;
+    content: '';
+    mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='8' viewBox='0 0 16 8' fill='none'><path fill-rule='evenodd' clip-rule='evenodd' d='M8 0C10.4 0 12.5 8 16 8H0C3.5 8 5.6 0 8 0Z' fill='rgba(45, 45, 71, 1)'/></svg>");
+    background-color: $bgColor;
+    width: 16px;
+    height: 8px;
+
+    @if ($pointerPosition == 'tl') {
+      top: -8px;
+      right: unset;
+    } @else if ($pointerPosition == 'tc') {
+      top: -8px;
+      right: calc(50% - 16px/2);
+    } @else if ($pointerPosition == 'tr') {
+      top: -8px;
+      right: calc(5px + 16px/2);
+    } @else if ($pointerPosition == 'bl') {
+      transform: rotate(180deg);
+      top: unset;
+      bottom: -8px;
+    } @else if ($pointerPosition == 'bc') {
+      transform: rotate(180deg);
+      top: unset;
+      bottom: -8px;
+      right: calc(50% - 16px/2);
+    } @else if ($pointerPosition == 'br') {
+      transform: rotate(180deg);
+      top: unset;
+      bottom: -8px;
+      right: calc(5px + 16px/2);
+    } @else if ($pointerPosition == 'right') {
+      transform: rotate(90deg);
+      top: calc(50% - 8px/2);
+      right: -12px;
+    } @else if ($pointerPosition == 'left') {
+      transform: rotate(-90deg);
+      top: calc(50% - 8px/2);
+      left: -12px;
+    }
+  }
+}

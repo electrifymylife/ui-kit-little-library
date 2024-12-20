@@ -1,0 +1,33 @@
+.input-wrap {
+  @include input(
+    var(--input-bg-color),
+    var(--input-border-color),
+    var(--input-text-color),
+    var(--input-text-color-label),
+    var(--input-text-color-placeholder),
+    var(--input-border-color-hover),
+    var(--input-border-radius)
+  );
+
+  & > .input-error {
+    @include input-error;
+  }
+
+  & > .btn-arrow {
+    @include input-button-icon('arrow');
+  }
+
+  @each $type in $input-btn-types {
+    & > .btn-#{$type} {
+      @include input-button-icon(#{$type});
+    }
+  }
+}
+
+.input-check {
+  @include input-check;
+}
+
+.input-radio {
+  @include input-radio;
+}

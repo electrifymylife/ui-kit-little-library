@@ -1,0 +1,24 @@
+@import "../variables";
+
+@mixin badge (
+  $bgColor,
+  $textColor
+) {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $bgColor;
+  color: $textColor;
+  font-weight: var(--badge-font-weight);
+  border-radius: var(--badge-border-radius);
+  padding: var(--badge-padding);
+};
+
+@mixin bordered (
+  $borderColor
+) {
+  background-color: transparent;
+  border-color: $borderColor;
+  border-style: var(--badge-border-style);
+  border-width: var(--badge-border-width);
+}

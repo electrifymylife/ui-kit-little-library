@@ -1,0 +1,130 @@
+.title1 {
+  font-size: var(--title1-size);
+  font-weight: var(--bold);
+  line-height: var(--title1-height);
+
+  &.extrabold {
+    font-weight: var(--extrabold);
+  }
+
+  &.regular {
+    font-weight: var(--regular);
+  }
+
+  &.light {
+    font-weight: var(--light);
+  }
+}
+
+.title2 {
+  font-size: var(--title2-size);
+  font-weight: var(--bold);
+  line-height: var(--title2-height);
+
+  &.extrabold {
+    font-weight: var(--extrabold);
+  }
+
+  &.semibold {
+    font-weight: var(--semibold);
+  }
+
+  &.regular {
+    font-weight: var(--regular);
+  }
+
+  &.light {
+    font-weight: var(--light);
+  }
+}
+
+.headline1 {
+  font-size: var(--headline1-size);
+  font-weight: var(--bold);
+  line-height: var(--headline1-height);
+
+  &.semibold {
+    font-weight: var(--semibold);
+  }
+
+  &.regular {
+    font-weight: var(--regular);
+  }
+
+  &.light {
+    font-weight: var(--light);
+  }
+}
+
+.headline2 {
+  font-size: var(--headline2-size);
+  font-weight: var(--bold);
+  line-height: var(--headline2-height);
+
+  &.semibold {
+    font-weight: var(--semibold);
+  }
+
+  &.regular {
+    font-weight: var(--regular);
+  }
+
+  &.light {
+    font-weight: var(--light);
+  }
+}
+
+.text {
+  font-size: var(--text-size);
+  font-weight: var(--bold);
+  line-height: var(--text-height);
+
+  &.semibold {
+    font-weight: var(--semibold);
+  }
+
+  &.regular {
+    font-weight: var(--regular);
+  }
+
+  &.light {
+    font-weight: var(--light);
+  }
+}
+
+.capture {
+  font-size: var(--capture-size);
+  font-weight: var(--bold);
+  line-height: var(--capture-height);
+
+  &.extrabold {
+    font-weight: var(--extrabold);
+  }
+
+  &.regular {
+    font-weight: var(--regular);
+  }
+
+  &.light {
+    font-weight: var(--light);
+  }
+}
+
+.label {
+  font-size: var(--label-size);
+  font-weight: var(--bold);
+  line-height: var(--label-height);
+
+  &.semibold {
+    font-weight: var(--semibold);
+  }
+
+  &.regular {
+    font-weight: var(--regular);
+  }
+
+  &.cursive {
+    text-transform: var(--label-transform);
+    letter-spacing: var(--label-spacing);
+  }
+}

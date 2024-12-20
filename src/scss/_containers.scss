@@ -1,0 +1,12 @@
+.container {
+  @include make-container;
+  max-width: 100%;
+}
+
+@each $type, $width in $container-max-widths {
+  .container-#{$type} {
+    @include make-container;
+    max-width: $width;
+  }
+}
+

@@ -1,0 +1,69 @@
+.alert {
+  @include alert(
+    var(--alert-error-icon),
+    var(--alert-error-bg-color),
+    var(--alert-error-color)
+  )
+}
+
+.alert.info.big {
+  @include big-info;
+}
+
+@each $style in $alert-styles {
+  .alert.#{$style} {
+    @include alert(
+      var(--alert-#{$style}-icon),
+      var(--alert-#{$style}-bg-color),
+      var(--alert-#{$style}-color)
+    )
+  }
+}
+
+@for $i from 1 through 2 {
+  .alert.test#{$i} {
+    @include alert-test(
+      var(--alert-test#{$i}-bg-color),
+      var(--alert-test#{$i}-text-color),
+      var(--alert-test#{$i}-icon-close-color)
+    )
+  }
+}
+
+.tooltip {
+  @include tooltip(
+    var(--tooltip1-bg-color),
+    var(--tooltip1-text-color),
+    'tl'
+  );
+
+  @each $position in $tooltip-pointer {
+    &.#{$position} {
+      @include tooltip(
+        var(--tooltip1-bg-color),
+        var(--tooltip1-text-color),
+        #{$position}
+      );
+    }
+  }
+}
+
+@for $i from 1 through 2 {
+  .tooltip#{$i} {
+    @include tooltip(
+      var(--tooltip#{$i}-bg-color),
+      var(--tooltip#{$i}-text-color),
+      'tl'
+    );
+
+    @each $position in $tooltip-pointer {
+      &.#{$position} {
+        @include tooltip(
+          var(--tooltip#{$i}-bg-color),
+          var(--tooltip#{$i}-text-color),
+          #{$position}
+        );
+      }
+    }
+  }
+}

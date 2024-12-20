@@ -1,0 +1,221 @@
+@font-face {
+  font-family: 'Open Sans';
+  src: url('https://fs.advance.ru/fonts/OpenSans/OpenSans-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('https://fs.advance.ru/fonts/OpenSans/OpenSans-LightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('https://fs.advance.ru/fonts/OpenSans/OpenSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('https://fs.advance.ru/fonts/OpenSans/OpenSans-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('https://fs.advance.ru/fonts/OpenSans/OpenSans-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('https://fs.advance.ru/fonts/OpenSans/OpenSans-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('https://fs.advance.ru/fonts/OpenSans/OpenSans-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('https://fs.advance.ru/fonts/OpenSans/OpenSans-SemiBoldItalic.ttf') format('truetype');
+  font-weight: 600;
+  font-style: italic;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('https://fs.advance.ru/fonts/OpenSans/OpenSans-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('https://fs.advance.ru/fonts/OpenSans/OpenSans-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('https://fs.advance.ru/fonts/OpenSans/OpenSans-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('https://fs.advance.ru/fonts/OpenSans/OpenSans-ExtraBoldItalic.ttf') format('truetype');
+  font-weight: 800;
+  font-style: italic;
+  font-display: fallback;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--body-font-family);
+  font-style: normal;
+  font-weight: var(--body-font-weight);
+  font-size: var(--body-font-size);
+  line-height: var(--body-line-height);
+  max-width: 100%;
+  overflow-x: hidden;
+  background-color: var(--body-bg);
+  color: var(--body-color);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  border-style: none;
+  background: unset;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: inherit;
+  text-transform: inherit;
+  color: inherit;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+h1 {
+  font-size: var(--title1-size);
+  font-weight: var(--bold);
+  line-height: var(--title1-height);
+}
+
+h2 {
+  font-size: var(--title2-size);
+  font-weight: var(--bold);
+  line-height: var(--title2-height);
+}
+
+h3 {
+  font-size: var(--headline1-size);
+  font-weight: var(--bold);
+  line-height: var(--headline2-height);
+}
+
+h4 {
+  font-size: var(--headline2-size);
+  font-weight: var(--bold);
+  line-height: var(--headline2-height);
+}
+
+h5 {
+  font-size: var(--capture-size);
+  font-weight: var(--bold);
+  line-height: var(--capture-height);
+}
+
+h6 {
+  font-size: var(--label-size);
+  font-weight: var(--bold);
+  line-height: var(--label-height);
+}
+
+p,
+a,
+span,
+ul,
+ol {
+  font-size: var(--text-size);
+  font-weight: var(--regular);
+  line-height: var(--text-height);
+}
+
+b,
+strong {
+  font-weight: var(--bold);
+}
+
+textarea::-webkit-resizer {
+  opacity: 1;
+  display: block;
+  background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'><path fill-rule='evenodd' clip-rule='evenodd' d='M13.3536 2.64645C13.5488 2.84171 13.5488 3.15829 13.3536 3.35355L3.35355 13.3536C3.15829 13.5488 2.84171 13.5488 2.64645 13.3536C2.45118 13.1583 2.45118 12.8417 2.64645 12.6464L12.6464 2.64645C12.8417 2.45118 13.1583 2.45118 13.3536 2.64645Z' fill='rgba(168, 168, 189, 1)'/><path fill-rule='evenodd' clip-rule='evenodd' d='M13.3536 8.64645C13.5488 8.84171 13.5488 9.15829 13.3536 9.35355L9.35355 13.3536C9.15829 13.5488 8.84171 13.5488 8.64645 13.3536C8.45118 13.1583 8.45118 12.8417 8.64645 12.6464L12.6464 8.64645C12.8417 8.45118 13.1583 8.45118 13.3536 8.64645Z' fill='rgba(168, 168, 189, 1)'/></svg>") no-repeat;
+  width: 20px;
+  height: 20px;
+  border-width: thin;
+  cursor: pointer;
+}
+
+textarea::-webkit-scrollbar {
+  display: none;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  display: none;
+}
+
+input[type="checkbox"]:checked + label:after,
+input[type="radio"]:checked + label:after {
+  opacity: 1;
+}
+
+select::-ms-expand {
+  display: none;
+}

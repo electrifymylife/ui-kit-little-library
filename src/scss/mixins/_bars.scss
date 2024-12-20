@@ -1,0 +1,58 @@
+@import "../variables";
+
+@mixin wrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+@mixin bar (
+  $fillColor,
+  $textColor,
+  $height,
+  $borderRadius
+) {
+  display: flex;
+  gap: 8px;
+  background-color: var(--bar-wrap-color);
+  border-radius: $borderRadius;
+  overflow: hidden;
+  padding: 0;
+  width: 100%;
+  height: $height;
+
+  & > .fill {
+    background-color: $fillColor;
+    border-radius: $borderRadius 0 0 $borderRadius;
+    text-align: center;
+    height: $height;
+  }
+
+  & + .counter-out {
+    color: $textColor;
+    min-width: 15%;
+  }
+
+  & + .counter-in {
+    position: absolute;
+    color: $textColor;
+    z-index: 1;
+    //min-width: 32px;
+    //top: 0;
+    //left: calc(50% - 32px/2);
+  }
+}
+
+@mixin bar-typography (
+  $fontSize
+) {
+  font-size: $fontSize;
+  font-weight: var(--bar-font-weight);
+
+  &.completed {
+    font-weight: var(--bar-completed-font-weight);
+  }
+}

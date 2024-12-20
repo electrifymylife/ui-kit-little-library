@@ -1,0 +1,315 @@
+button {
+  @include button-typography(
+                  var(--btn-lg-font-family),
+                  var(--btn-lg-font-size),
+                  var(--btn-lg-line-height),
+                  var(--btn-lg-font-weight),
+                  var(--btn-lg-letter-spacing),
+  );
+  @include button-size(var(--lgBtnPaddingY) var(--lgBtnPaddingX));
+}
+
+.btn {
+  @include button-typography(
+                  var(--btn-lg-font-family),
+                  var(--btn-lg-font-size),
+                  var(--btn-lg-line-height),
+                  var(--btn-lg-font-weight),
+                  var(--btn-lg-letter-spacing),
+  );
+  @include button-size(var(--lgBtnPaddingY) var(--lgBtnPaddingX));
+}
+
+@each $style in $btn-styles {
+  .#{$style} {
+    @include button(
+                    var(--btn-#{$style}-bg-color),
+                    var(--btn-#{$style}-border-color),
+                    var(--btn-#{$style}-text-color),
+                    var(--btn-#{$style}-bg-hover-color),
+                    var(--btn-#{$style}-border-hover-color),
+                    var(--btn-#{$style}-text-hover-color),
+                    var(--btn-#{$style}-bg-active-color),
+                    var(--btn-#{$style}-bg-disabled-color),
+                    var(--btn-#{$style}-border-disabled-color),
+                    var(--btn-#{$style}-text-disabled-color)
+    );
+    @if ($style == 'line1' or $style == 'line2' or $style == 'ghost') {
+      border-width: 1px;
+    }
+  }
+}
+
+@each $size in $btn-sizes {
+  .#{$size} {
+    @include button-size(var(--#{$size}BtnPaddingY) var(--#{$size}BtnPaddingX));
+    @include button-typography(
+                    var(--btn-#{$size}-font-family),
+                    var(--btn-#{$size}-font-size),
+                    var(--btn-#{$size}-line-height),
+                    var(--btn-#{$size}-font-weight),
+                    var(--btn-#{$size}-letter-spacing),
+    );
+  }
+}
+
+@each $type, $side in $btn-icon-types {
+  .#{$type} {
+    @include button-icon (
+                    #{$type},
+                    if($type == 'loader', var(--btn-main-text-disabled-color), var(--btn-main-text-color)), // icon color = text color, loader = disabled text color
+                    var(--btn-main-text-hover-color), // icon hover = text hover
+                    var(--btn-main-text-disabled-color), // icon disabled = text disabled
+                    var(--btn-icon-main-width),
+                    var(--btn-icon-main-height),
+                    #{$side},
+                    lg,
+                    var(--btn-icon-#{$type}-gap),
+    );
+    @each $style in $btn-styles {
+      &-#{$style} {
+        @extend .#{$style};
+        @include button-icon (
+                        #{$type},
+                        if($type == 'loader', var(--btn-#{$style}-text-disabled-color), var(--btn-#{$style}-text-color)), // icon color = text color, loader = disabled text color
+                        var(--btn-#{$style}-text-hover-color), // icon hover = text hover
+                        var(--btn-#{$style}-text-disabled-color), // icon disabled = text disabled
+                        var(--btn-icon-main-width),
+                        var(--btn-icon-main-height),
+                        #{$side},
+                        lg,
+                        var(--btn-icon-#{$type}-gap),
+        );
+        @each $size in $btn-sizes {
+          &-#{$size} {
+            @extend .#{$size};
+            @include button-icon (
+                            #{$type},
+                            if($type == 'loader', var(--btn-#{$style}-text-disabled-color), var(--btn-#{$style}-text-color)), // icon color = text color, loader = disabled text color
+                            var(--btn-#{$style}-text-hover-color), // icon hover = text hover
+                            var(--btn-#{$style}-text-disabled-color), // icon disabled = text disabled
+                            var(--btn-icon-main-width),
+                            var(--btn-icon-main-height),
+                            #{$side},
+                            #{$size},
+                            var(--btn-icon-#{$type}-gap),
+            );
+          }
+        }
+      }
+    }
+  }
+}
+
+@each $type in $btn-icon-single-types {
+  .#{$type} {
+    @include button-icon-single (
+                    #{$type}, // edit, loader
+                    var(--btn-main-#{$type}-icon-color),
+                    var(--btn-main-#{$type}-icon-color-hover),
+                    var(--btn-#{$type}-border-radius),
+                    var(--btn-#{$type}-icon-width),
+                    var(--btn-#{$type}-icon-height),
+                    var(--btn-#{$type}-padding-y),
+                    var(--btn-#{$type}-padding-x),
+                    var(--btn-#{$type}-background-image),
+                    var(--btn-#{$type}-border-width)
+    );
+  }
+  @each $style in $btn-styles {
+    .#{$type} {
+      &-#{$style} {
+        @extend .#{$style};
+        @include button-icon-single (
+                        #{$type}, // edit, loader
+                        var(--btn-#{$style}-#{$type}-icon-color),
+                        var(--btn-#{$style}-#{$type}-icon-color-hover),
+                        var(--btn-#{$type}-border-radius),
+                        var(--btn-#{$type}-icon-width),
+                        var(--btn-#{$type}-icon-height),
+                        var(--btn-#{$type}-padding-y),
+                        var(--btn-#{$type}-padding-x),
+                        var(--btn-#{$type}-background-image),
+                        var(--btn-#{$type}-border-width)
+        );
+      }
+    }
+  }
+}
+
+@each $style in $btn-extra-styles {
+  .#{$style} {
+    @include button-extra (
+                    var(--btn-extra-#{$style}-bg-color),
+                    var(--btn-extra-#{$style}-text-color),
+                    var(--btn-extra-#{$style}-border-color),
+                    var(--btn-extra-#{$style}-bg-hover-color),
+                    var(--btn-extra-#{$style}-text-hover-color),
+                    var(--btn-extra-#{$style}-border-hover-color),
+                    var(--btn-extra-#{$style}-bg-disabled-color),
+                    var(--btn-extra-#{$style}-text-disabled-color),
+                    var(--btn-extra-#{$style}-border-disabled-color),
+    );
+  }
+}
+
+
+.rate {
+  @include button-typography(
+                  var(--btn-rate-font-family),
+                  var(--btn-rate-font-size),
+                  var(--btn-rate-line-height),
+                  var(--btn-rate-font-weigth),
+                  var(--btn-rate-letter-spacing)
+  );
+  @include button-size(var(--btn-rate-padding));
+  display: inline-block;
+  border: var(--btn-rate-border-width) solid var(--btn-rate-border-color);
+  border-radius: var(--btn-rate-border-radius);
+  text-transform: var(--btn-rate-text-transform);
+  outline: none;
+  position: relative;
+  &:before {
+    position: absolute;
+    content: '';
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E %3Cg clip-path='url(%23clip0_11517_43820)'%3E %3Cpath d='M8.00016 11.5133L12.1202 13.9999L11.0268 9.31325L14.6668 6.15992L9.8735 5.75325L8.00016 1.33325L6.12683 5.75325L1.3335 6.15992L4.9735 9.31325L3.88016 13.9999L8.00016 11.5133Z' fill='%23B721D0'/%3E %3C/g%3E %3Cdefs%3E %3CclipPath id='clip0_11517_43820'%3E %3Crect width='16' height='16' fill='white'/%3E %3C/clipPath%3E %3C/defs%3E %3C/svg%3E") no-repeat;
+    background: var(--btn-rate-icon-color);
+    background-repeat: no-repeat;
+    top: calc(50% - var(--btn-rate-icon-height)/2);
+    left: 2px;
+    width: var(--btn-rate-icon-width);
+    height: var(--btn-rate-icon-height);
+  }
+  &:focus {
+    border: var(--btn-rate-border-width) solid var(--btn-rate-border-color-hover);
+  }
+}
+
+.village {
+  @include button (
+                  var(--btn-village-bg-color),
+                  var(--btn-village-border-color),
+                  var(--btn-village-text-color),
+                  var(--btn-village-bg-hover-color),
+                  var(--btn-village-border-hover-color),
+                  var(--btn-village-text-hover-color),
+                  var(--btn-village-bg-active-color),
+                  var(--btn-village-bg-disabled-color),
+                  var(--btn-village-border-disabled-color),
+                  var(--btn-village-text-disabled-color),
+                  var(--btn-village-border-width),
+                  var(--btn-village-border-radius),
+                  var(--btn-village-border-focus-color)
+  );
+  @include button-typography(
+                  var(--btn-village-font-family),
+                  var(--btn-village-font-size),
+                  var(--btn-village-line-height),
+                  var(--btn-village-font-weigth),
+                  var(--btn-village-letter-spacing)
+  );
+  @include button-size(var(--vlgBtnPaddingY) var(--vlgBtnPaddingX));
+
+  &-icon {
+    @include button (
+                    var(--btn-village-icon-bg-color),
+                    var(--btn-village-icon-border-color),
+                    var(--btn-village-icon-text-color),
+                    var(--btn-village-icon-bg-hover-color),
+                    var(--btn-village-icon-border-hover-color),
+                    var(--btn-village-icon-text-hover-color),
+                    var(--btn-village-icon-bg-active-color),
+                    var(--btn-village-icon-bg-disabled-color),
+                    var(--btn-village-icon-border-disabled-color),
+                    var(--btn-village-icon-text-disabled-color),
+                    var(--btn-village-icon-border-width),
+                    var(--btn-village-icon-border-radius),
+                    var(--btn-village-icon-border-focus-color)
+    );
+  }
+
+  &-stats {
+    @extend .village-icon;
+    @include button-icon-single(
+                    null,
+                    null,
+                    null,
+                    var(--btn-village-stats-border-radius),
+                    var(--btn-village-stats-width),
+                    var(--btn-village-stats-height),
+                    var(--btn-village-stats-padding-y),
+                    var(--btn-village-stats-padding-x),
+                    var(--btn-village-stats-svg)
+    );
+  }
+
+  &-tg {
+    @extend .village-icon;
+    @include button-icon-single(
+                    null, 
+                    null, 
+                    null,
+                    var(--btn-village-tg-border-radius),
+                    var(--btn-village-tg-width),
+                    var(--btn-village-tg-height),
+                    var(--btn-village-tg-padding-y),
+                    var(--btn-village-tg-padding-x),
+                    var(--btn-village-tg-svg)
+    );
+  }
+}
+
+.mainpage {
+  background-color: var(--btn-mainpage-bg-color);
+  color: var(--btn-mainpage-text-color);
+  font-size: var(--btn-mainpage-font-size);
+  font-weight: var(--btn-mainpage-font-weight);
+  line-height: var(--btn-mainpage-line-height);
+  border-radius: var(--btn-mainpage-border-radius);
+  border: var(--btn-mainpage-border-width) solid var(--btn-mainpage-border-main-color);
+  outline: none;
+  position: relative;
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='18' viewBox='0 0 10 18' fill='none'><path d='M9 1L1 9L9 17' stroke='white' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-position-x: 13px;
+  padding: var(--mainpage-padding);
+  &:before,
+  &:after {
+    position: absolute;
+    content: '';
+    background-repeat: no-repeat;
+    border-radius: inherit;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+  &:before {
+    border: var(--btn-mainpage-border-width) solid var(--btn-mainpage-border-top-color);
+    top: -4px;
+    left: -4px;
+  }
+  &:after {
+    border: var(--btn-mainpage-border-width) solid var(--btn-mainpage-border-bottom-color);
+    right: -4px;
+    bottom: -4px;
+  }
+  &:focus {
+    border: var(--btn-mainpage-border-width) solid var(--btn-mainpage-border-main-color-focus);
+  }
+}
+
+
+.link {
+  color: var(--link-color);
+  &:hover, &:focus {
+    color: var(--link-color-hover);
+  }
+  &:visited {
+    color: var(--link-color-visited);
+  }
+}
+
+.toggle {
+  @include toggle;
+}

@@ -1,0 +1,31 @@
+.badge {
+  @include badge(
+    var(--badge-default-bg-color),
+    var(--badge-default-text-color)
+  );
+}
+
+.badge.bordered {
+  @extend .badge;
+  @include bordered(
+    var(--badge-default-border-color)
+  );
+}
+
+@each $style in $badge-styles {
+  .badge.#{$style} {
+    @include badge(
+      var(--badge-#{$style}-bg-color),
+      var(--badge-#{$style}-text-color)
+    );
+  }
+  .badge.bordered.#{$style} {
+    @include badge(
+      var(--badge-#{$style}-bg-color),
+      var(--badge-#{$style}-text-color)
+    );
+    @include bordered(
+      var(--badge-#{$style}-border-color)
+    );
+  }
+}

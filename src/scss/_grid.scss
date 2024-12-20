@@ -1,0 +1,86 @@
+.row {
+  @include make-row;
+}
+
+.gap {
+  gap: map-get($space-types, "l");
+}
+
+@each $type, $space in $space-types {
+  .gap-#{$type} {
+    gap: $space;
+  }
+}
+
+@each $type, $space in $space-types {
+  @for $i from 1 through $cols-quantity {
+    .col-#{$type}-#{$i} {
+      @include make-col;
+      max-width: calc((100% - #{$space}*(#{$i} - 1))/ #{$i});
+      flex: 0 0 calc((100% - #{$space}*(#{$i} - 1))/ #{$i});
+    }
+  }
+}
+
+.col, .col-1 {
+  @include make-col;
+  flex-basis: 0;
+  flex-grow: 1;
+  max-width: 100%;
+}
+
+@for $i from 2 through $cols-quantity {
+  .col-#{$i} {
+    @include make-col;
+    max-width: calc(100% / $i);
+    flex: 0 0 calc(100% / $i);
+  }
+}
+
+@each $type, $space in $space-types {
+  .m-#{$type} {
+    margin: $space;
+  }
+  .m-auto-#{$type} {
+    margin: $space auto;
+  }
+  .mt-#{$type} {
+    margin-top: $space;
+  }
+  .mb-#{$type} {
+    margin-bottom: $space;
+  }
+  .ml-#{$type} {
+    margin-left: $space;
+  }
+  .mr-#{$type} {
+    margin-right: $space;
+  }
+  .p-#{$type} {
+    padding: $space;
+  }
+  .pt-#{$type} {
+    padding-top: $space;
+  }
+  .pb-#{$type} {
+    padding-bottom: $space;
+  }
+  .pl-#{$type} {
+    padding-left: $space;
+  }
+  .pr-#{$type} {
+    padding-right: $space;
+  }
+}
+
+.d-flex {
+  display: flex;
+}
+
+.direction-col {
+  flex-direction: column;
+}
+
+.direction-row {
+  flex-direction: row;
+}

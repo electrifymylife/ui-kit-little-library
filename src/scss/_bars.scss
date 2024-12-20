@@ -1,0 +1,37 @@
+@import "variables";
+
+.bar {
+  @include bar(
+    var(--bar-sm-fill-color),
+    var(--bar-sm-text-color),
+    var(--bar-sm-height),
+    var(--bar-sm-border-radius)
+  );
+  & + .counter-in,
+  & + .counter-out {
+    @include bar-typography(
+      var(--bar-sm-font-size)
+    )
+  }
+}
+
+.wrap {
+  @include wrap;
+}
+
+@each $size in $bars-sizes {
+  .bar.#{$size} {
+    @include bar(
+      var(--bar-#{$size}-fill-color),
+      var(--bar-#{$size}-text-color),
+      var(--bar-#{$size}-height),
+      var(--bar-#{$size}-border-radius)
+    );
+  }
+  .bar.#{$size} + .counter-in,
+  .bar.#{$size} + .counter-out {
+    @include bar-typography(
+      var(--bar-#{$size}-font-size)
+    )
+  }
+}

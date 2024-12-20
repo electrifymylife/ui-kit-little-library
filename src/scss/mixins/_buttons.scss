@@ -1,0 +1,367 @@
+@import "../variables";
+
+@mixin button (
+  $backgroundColor,
+  $borderColor,
+  $color,
+  $hoverBgColor,
+  $hoverBorderColor,
+  $hoverColor,
+  $activeBgColor,
+  $disabledBgColor,
+  $disabledBorderColor,
+  $disabledColor,
+  $borderWidth: var(--btn-default-border-width),
+  $borderRadius: var(--btn-default-border-radius),
+  $focusBorderColor: var(--btn-all-border-focus-color),
+) {
+  display: inline-block;
+  color: $color;
+  background-color: $backgroundColor;
+  border-width: $borderWidth;
+  border-style: solid;
+  border-color: $borderColor;
+  outline: none;
+  border-radius: $borderRadius;
+  position: relative;
+  transition: var(--btn-active-transition);
+  overflow: hidden;
+  z-index: 1;
+  &:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 50%;
+    left: 50%;
+    transform-style: var(--btn-active-transform-style-after);
+    transform: var(--btn-active-transform-after);
+    background: $activeBgColor;
+    border-radius: 100%;
+    transition: var(--btn-active-transition-after);
+    z-index: -1;
+  }
+  &:hover {
+    border-color: $hoverBorderColor;
+    background-color: $hoverBgColor;
+    color: $hoverColor;
+  }
+  &:focus {
+    border-color: $focusBorderColor;
+  }
+  &:active {
+    border-color: $hoverBorderColor;
+    &:after {
+      width: var(--btn-active-transform-size);
+      height: var(--btn-active-transform-size);
+    }
+  }
+  &:disabled {
+    background-color: $disabledBgColor;
+    border-color: $disabledBorderColor;
+    color: $disabledColor;
+    cursor: default;
+    pointer-events: none;
+    user-select: none;
+  }
+}
+
+@mixin button-typography (
+  $font-family,
+  $font-size,
+  $line-height,
+  $font-weight,
+  $letter-spacing
+) {
+  font-family: $font-family;
+  font-size: $font-size;
+  line-height: $line-height;
+  font-weight: $font-weight;
+  text-align: var(--btn-default-align);
+  letter-spacing: $letter-spacing;
+}
+
+@mixin button-size (
+  $padding
+) {
+  padding: $padding;
+  z-index: 1;
+}
+
+@mixin button-icon (
+  $iconType, // create, prev, next, loader
+  $iconColor, // rgb or rgba only!!
+  $iconHoverColor,
+  $iconDisabledColor,
+  $width,
+  $height,
+  $side, // left, right, top, bottom
+  $size, // Lg, Md, Sm - use vars for .btn-size
+  $gap, // between icon and text
+  $backgroundImage: unset // unset by default, could be anything custom
+) {
+  position: relative;
+  @if ($side == 'left') {
+    padding-left: calc(var(--#{$size}BtnPaddingX) + $width);
+    padding-right: var(--#{$size}BtnPaddingX);
+  } @else if ($side == 'right') {
+    padding-left: var(--#{$size}BtnPaddingX);
+    padding-right: calc(var(--#{$size}BtnPaddingX) + $width);
+  }
+  &:before {
+    position: absolute;
+    content: '';
+    width: $width;
+    height: $height;
+    background-repeat: no-repeat;
+    @if ($side == 'left') {
+      top: calc(50% - $height/2);
+      left: calc(var(--#{$size}BtnPaddingX) - $gap);
+      right: unset;
+      bottom: unset;
+    } @else if ($side == 'right') {
+      top: calc(50% - $height/2);
+      right: calc(var(--#{$size}BtnPaddingX) - $gap);
+      left: unset;
+      bottom: unset;
+    } @else if ($side == 'top') {
+      top: calc(var(--#{$size}BtnPaddingY) - $gap);
+      left: calc(50% - $width/2);
+      right: unset;
+      bottom: unset;
+    } @else if ($side == 'bottom') {
+      top: unset;
+      right: unset;
+      left: calc(50% - $width/2);
+      bottom: calc(var(--#{$size}BtnPaddingY) - $gap);
+    }
+    @if ($iconType == 'create') {
+      mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16px' height='16' viewBox='0 0 16 16' fill='none'><path d='M8 3C7.44772 3 7 3.44772 7 4V7H4C3.44772 7 3 7.44772 3 8C3 8.55228 3.44772 9 4 9H7V12C7 12.5523 7.44772 13 8 13C8.55228 13 9 12.5523 9 12V9H12C12.5523 9 13 8.55228 13 8C13 7.44772 12.5523 7 12 7H9V4C9 3.44772 8.55228 3 8 3Z' fill='white'/></svg>") no-repeat;
+      background-color: $iconColor;
+    } @else if ($iconType == 'prev') {
+      mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16px' height='16px' viewBox='0 0 16 16' fill='none'><path fill-rule='evenodd' clip-rule='evenodd' d='M10.6805 12.6746C10.2545 13.1085 9.56375 13.1085 9.13772 12.6746L5.31952 8.7856C4.89351 8.3517 4.89349 7.64822 5.31947 7.21429L9.13712 3.32548C9.56311 2.89154 10.2538 2.8915 10.6799 3.32539C11.1059 3.75929 11.106 4.4628 10.68 4.89674L7.63361 7.99988L10.6805 11.1032C11.1065 11.5371 11.1065 12.2406 10.6805 12.6746Z' fill='white'/></svg>") no-repeat;
+      background-color: $iconColor;
+    } @else if ($iconType == 'next') {
+      mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16px' height='16px' viewBox='0 0 16 16' fill='none'><path fill-rule='evenodd' clip-rule='evenodd' d='M5.31952 3.32544C5.74554 2.89152 6.43625 2.89152 6.86228 3.32544L10.6805 7.2144C11.1065 7.6483 11.1065 8.35178 10.6805 8.78571L6.86289 12.6745C6.43689 13.1085 5.74617 13.1085 5.32013 12.6746C4.89408 12.2407 4.89404 11.5372 5.32004 11.1033L8.36639 8.00012L5.31952 4.89679C4.89349 4.46287 4.89349 3.75935 5.31952 3.32544Z' fill='white'/></svg>") no-repeat;
+      background-color: $iconColor;
+    } @else if ($iconType == 'loader') {
+      display: block;
+      width: $width;
+      height: $height;
+      border-width: var(--btn-loader-icon-width);
+      border-style: solid;
+      border-top-color: $iconColor;
+      border-bottom-color: $iconColor;
+      border-right-color: $iconColor;
+      border-left-color: transparent;
+      border-radius: 50%;
+      animation: var(--btn-loader-animation);
+      @keyframes lds-ring {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    } @else {
+      background-image: $backgroundImage;
+    }
+  }
+  &:hover:before {
+    @if ($iconType == 'create') {
+      background-color: $iconHoverColor;
+    } @else if ($iconType == 'prev') {
+      background-color: $iconHoverColor;
+    } @else if ($iconType == 'next') {
+      background-color: $iconHoverColor;
+    }
+  }
+  &:disabled:before {
+    @if ($iconType == 'create') {
+      background-color: $iconDisabledColor;
+    } @else if ($iconType == 'prev') {
+      background-color: $iconDisabledColor;
+    } @else if ($iconType == 'next') {
+      background-color: $iconDisabledColor;
+    }
+  }
+}
+
+@mixin button-icon-single (
+  $iconType, // edit, loader
+  $iconColor,
+  $iconHoverColor,
+  $borderRadius,
+  $iconWidth,
+  $iconHeight,
+  $paddingY,
+  $paddingX,
+  $backgroundImage: unset, // unset by default, could be anything custom
+  $borderWidth: 2px
+) {
+  position: relative;
+  font-size: 0;
+  border-radius: $borderRadius;
+  padding: $paddingY $paddingX;
+  width: calc($paddingX*2 + $iconWidth + $borderWidth*2);
+  height: calc($paddingY*2 + $iconHeight + $borderWidth*2);
+  &:before {
+    position: absolute;
+    content: '';
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: $iconWidth;
+    height: $iconHeight;
+    top: calc(50% - $iconHeight/2);
+    left: calc(50% - $iconWidth/2);
+    @if ($iconType == 'edit') {
+      mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24px' height='24px' viewBox='0 0 24 24' fill='none'><path fill-rule='evenodd' clip-rule='evenodd' d='M9.08928 20.6109C8.94968 20.7505 8.77188 20.8457 8.57829 20.8844L3.27499 21.945C2.57527 22.085 1.95835 21.4681 2.09829 20.7684L3.15895 15.465C3.19767 15.2715 3.29283 15.0937 3.43243 14.9541L15.2391 3.14734C16.8012 1.58524 19.1944 1.7247 20.7565 3.2868C22.3186 4.84889 22.4581 7.24209 20.896 8.80419L9.08928 20.6109ZM4.35363 19.6897L5.06074 16.1542L15.0997 6.11522L17.9281 8.94365L7.88916 18.9826L4.35363 19.6897ZM16.5139 4.70101L19.3423 7.52944C20.1234 6.74839 20.1234 5.48206 19.3423 4.70101C18.5613 3.91996 17.295 3.91996 16.5139 4.70101Z' fill='white'/></svg>") no-repeat;
+      background-color: $iconColor;
+    } @else if ($iconType == 'loader-single') {
+      display: block;
+      width: $iconWidth;
+      height: $iconWidth;
+      border-width: var(--btn-loader-icon-width);
+      border-style: solid;
+      border-top-color: $iconColor;
+      border-bottom-color: $iconColor;
+      border-right-color: $iconColor;
+      border-left-color: transparent;
+      border-radius: 50%;
+      animation: var(--btn-loader-animation);
+      @keyframes lds-ring {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    } @else {
+      background-image: $backgroundImage;
+    }
+  }
+
+  &:hover:before {
+    background-color: $iconHoverColor;
+  }
+
+  &:active {
+    &:after {
+      width: calc($iconWidth*2.5);
+      height: calc($iconHeight*2.5);
+    }
+  }
+}
+
+@mixin button-extra (
+  $backgroundColor,
+  $color,
+  $borderColor,
+  $bgHoverColor,
+  $txtHoverColor,
+  $borderHoverColor,
+  $bgDisabledColor,
+  $txtDisabledColor,
+  $borderDisabledColor
+) {
+  display: inline-block;
+  font-family: var(--body-font-family);
+  font-size: var(--btn-extra-font-size);
+  font-style: normal;
+  font-weight: var(--btn-extra-font-weight);
+  line-height: var(--btn-extra-line-height);
+  letter-spacing: var(--btn-extra-letter-spacing);
+  background-color: $backgroundColor;
+  color: $color;
+  text-align: center;
+  border: var(--btn-extra-border-width) solid $borderColor;
+  border-radius: var(--btn-extra-border-radius);
+  padding: var(--extraBtnPaddingY) var(--extraBtnPaddingX);
+  min-width: var(--extraMinWidth);
+  outline: none;
+
+  &:hover {
+    background-color: $bgHoverColor;
+    border: var(--btn-extra-border-width) solid $borderHoverColor;
+    color: $txtHoverColor;
+  }
+
+  &:focus {
+    border: var(--btn-extra-border-width) solid var(--btn-all-border-focus-color);
+  }
+
+  &:disabled {
+    background-color: $bgDisabledColor;
+    border: 1px solid $borderDisabledColor;
+    color: $txtDisabledColor;
+  }
+}
+
+@mixin toggle () {
+  opacity: 0;
+  position: absolute;
+
+  & + label {
+    position: relative;
+    display: inline-block;
+    user-select: none;
+    transition: var(--toggle-transition);
+    height: var(--toggle-height);
+    width: var(--toggle-width);
+    background: var(--toggle-bg-color);
+    border-radius: var(--toggle-border-radius);
+    &:before {
+      content: "";
+      position: absolute;
+      display: block;
+      transition: var(--toggle-label-pseudo-transition);
+      height: var(--toggle-height);
+      width: var(--toggle-width);
+      top: 0;
+      left: 0;
+      border-radius: var(--toggle-border-radius);
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      display: block;
+      transition: var(--toggle-btn-transition);
+      background: #FFF;
+      height: var(--toggle-btn-height);
+      width: var(--toggle-btn-width);
+      top: calc(50% - var(--toggle-btn-height)/2);
+      left: 2px;
+      border-radius: var(--toggle-btn-border-radius);
+    }
+    &:hover, &:focus {
+      cursor: pointer;
+      & + label:before {
+        background: var(--toggle-bg-color-focused);
+      }
+    }
+  }
+
+  &:disabled {
+    & + label:before {
+      background: var(--toggle-bg-color-disabled);
+    }
+  }
+
+  &:checked {
+    & + label:before {
+      background: var(--toggle-bg-color-active);
+      transition: var(--toggle-checked-transition);
+    }
+    & + label:after {
+      left: 22px;
+    }
+  }
+
+  &:checked:disabled {
+    & + label:before {
+      background: var(--toggle-bg-color-active-disabled);
+    }
+  }
+}

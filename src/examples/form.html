@@ -1,0 +1,626 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Form elements</title>
+  <link rel="stylesheet" href="../starter-kit.min.css">
+</head>
+<body>
+
+  <div class="container m-l">
+
+    <!-- ======================== SELECT ======================== -->
+
+    <h2 class="mb-l">Select</h2>
+    <div class="row border-1 gap-l p-l mb-l">
+      <div class="d-flex direction-col gap-l">
+
+        <div class="select">
+          <label for="select1">Тип события *</label>
+          <div class="select-inner">
+            <select name="event" id="select1">
+              <option value="">Не выбран</option>
+              <option value="event-close-course" selected>Завершение курса</option>
+              <option value="event-close-section">Завершение секции</option>
+              <option value="event-open-course">Открытие курса</option>
+              <option value="event-open-section">Открытие секции</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="select error">
+          <div class="label-inner">
+            <label for="select2">Lable</label>
+            <span class="err-message">Значение не выбрано!</span>
+          </div>
+          <div class="select-inner">
+            <select name="event" id="select2">
+              <option value="" selected disabled hidden>Выберите способ перемещения</option>
+              <option value="event-close-course">Завершение курса</option>
+              <option value="event-close-section">Завершение секции</option>
+              <option value="event-open-course">Открытие курса</option>
+              <option value="event-open-section">Открытие секции</option>
+            </select>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- ======================== INPUTS ======================== -->
+    <h2 class="mb-l">Inputs</h2>
+    <div class="row border-1 gap-l p-l mb-l">
+      <div class="col-l-3 p-m border-2">
+        <div class="d-flex direction-col gap-l">
+
+          <div class="input-wrap">
+            <div class="input-inner">
+              <input id="example0" type="text" placeholder="Here’s some example placeholder">
+            </div>
+          </div>
+
+          <div class="input-wrap">
+            <label for="example1">Lable</label>
+            <div class="input-inner">
+              <input id="example1" type="text" placeholder="Here’s some example placeholder">
+            </div>
+          </div>
+
+          <div class="input-wrap">
+            <label for="example2">Lable</label>
+            <div class="input-inner">
+              <input id="example2" type="text" placeholder="Here’s some example placeholder" value="Text example">
+              <button>Закрыть</button>
+            </div>
+          </div>
+
+          <div class="input-wrap">
+            <label for="example3">Lable</label>
+            <div class="input-inner timer">
+              <input id="example3" type="text" placeholder="Here’s some example placeholder">
+              <button>Закрыть</button>
+            </div>
+          </div>
+
+          <div class="input-wrap">
+            <div class="input-inner">
+              <input id="example4" type="text" placeholder="Here’s some example placeholder" value="Here’s some example text">
+              <button>Закрыть</button>
+            </div>
+          </div>
+
+          <div class="input-wrap">
+            <div class="label-inner">
+              <label for="example5">Lable</label>
+              <span class="err-message">Form filling error!</span>
+            </div>
+            <div class="input-inner input-error">
+              <input id="example5" type="text" placeholder="Here’s some example placeholder"
+                     value="Here’s some example text">
+              <button>Закрыть</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="col-l-3 p-m border-2">
+        <div class="d-flex direction-col gap-l">
+
+          <div class="input-wrap">
+            <label for="example6">Lable</label>
+            <div class="input-inner btn-arrow-down">
+              <input id="example6" type="text" placeholder="Here’s some example placeholder">
+              <button>Закрыть</button>
+            </div>
+          </div>
+
+          <div class="input-wrap">
+            <label for="example7">Lable</label>
+            <div class="input-inner btn-arrow-down">
+              <input id="example7" type="text" placeholder="Here’s some example placeholder" value="Here’s some example text">
+              <button>Закрыть</button>
+            </div>
+          </div>
+
+          <div class="input-wrap">
+            <label for="example8">Lable</label>
+            <div class="input-inner btn-arrow-up">
+              <input id="example8" type="text" placeholder="Here’s some example placeholder" value="Here’s some example text">
+              <button>Закрыть</button>
+            </div>
+          </div>
+
+          <div class="input-wrap">
+            <label for="example9">Пароль</label>
+            <div class="input-inner btn-eye-close">
+              <input id="example9" type="password" placeholder="Here’s some example placeholder" value="qwerty1234">
+              <button>Закрыть</button>
+            </div>
+          </div>
+
+          <div class="input-wrap">
+            <label for="example10">Пароль</label>
+            <div class="input-inner btn-eye-open">
+              <input id="example10" type="text" placeholder="Here’s some example placeholder" value="qwerty1234">
+              <button>Закрыть</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="col-l-3 p-m border-2">
+        <div class="d-flex direction-col gap-l">
+
+          <div class="input-wrap">
+            <label for="example11">Lable</label>
+            <div class="input-inner">
+              <textarea id="example11" placeholder="Here’s some example placeholder"></textarea>
+            </div>
+          </div>
+          <div class="input-wrap">
+            <label for="example12">Lable</label>
+            <div class="input-inner">
+              <textarea id="example12" placeholder="Here’s some example placeholder">Here’s some example text that may give the developers more usefull information about user</textarea>
+              <button>Закрыть</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ======================== CHECK + RADIO + TOGGLE ======================== -->
+    <h2 class="mb-l">Checkboxes, radioboxes, toggle</h2>
+    <div class="row gap-l mb-l">
+      <div class="col-l-2 border-1 p-l">
+        <div class="row gap-m">
+          <div class="col-m-3">
+            <div class="d-flex direction-col gap-l">
+
+              <div class="input-check">
+                <input id="check1" type="checkbox" tabindex="1" checked>
+                <label for="check1">Caption Regular</label>
+              </div>
+              <div class="input-check">
+                <input id="check2" tabindex="2" type="checkbox">
+                <label for="check2">Caption Regular</label>
+              </div>
+              <div class="input-check cancel">
+                <input id="check3" tabindex="3" type="checkbox" checked>
+                <label for="check3">Caption Regular</label>
+              </div>
+              <div class="input-check">
+                <input id="check4" type="checkbox" disabled>
+                <label for="check4">Caption Regular</label>
+              </div>
+              <div class="input-check">
+                <input id="check5" type="checkbox" checked disabled>
+                <label for="check5">Caption Regular</label>
+              </div>
+
+            </div>
+          </div>
+          <div class="col-m-3">
+            <div class="d-flex direction-col gap-l">
+
+              <div class="input-radio">
+                <input id="radio1" type="radio" name="examples" checked>
+                <label for="radio1">Caption Regular</label>
+              </div>
+              <div class="input-radio">
+                <input id="radio2" type="radio" name="examples">
+                <label for="radio2">Caption Regular</label>
+              </div>
+              <div class="input-radio">
+                <input id="radio3" type="radio" name="examples2" checked disabled>
+                <label for="radio3">Caption Regular</label>
+              </div>
+              <div class="input-radio">
+                <input id="radio4" type="radio" name="examples2" disabled>
+                <label for="radio4">Caption Regular</label>
+              </div>
+
+            </div>
+          </div>
+          <div class="col-m-3">
+            <div class="d-flex direction-col gap-l">
+
+              <input class="toggle" type="checkbox" name="toggle" id="toggle1" checked>
+              <label for="toggle1"></label>
+
+              <input class="toggle" type="checkbox" name="toggle" id="toggle2">
+              <label for="toggle2"></label>
+
+              <input class="toggle" type="checkbox" name="toggle" id="toggle3" checked disabled>
+              <label for="toggle3"></label>
+
+              <input class="toggle" type="checkbox" name="toggle" id="toggle4" disabled>
+              <label for="toggle4"></label>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-l-2 border-1 p-l">
+        <h1 class="title1 extrabold mb-xl">Sample</h1>
+        <h2 class="title2 semibold mb-m">Title for radiobuttons</h2>
+
+        <div class="d-flex direction-col gap-s mb-l">
+
+          <div class="input-radio">
+            <input id="sample1" type="radio" name="sample1" checked>
+            <label for="sample1">Caption Regular</label>
+          </div>
+          <div class="input-radio">
+            <input id="sample2" type="radio" name="sample1">
+            <label for="sample2">Caption Regular</label>
+          </div>
+          <div class="input-radio">
+            <input id="sample3" type="radio" name="sample1">
+            <label for="sample3">Caption Regular</label>
+          </div>
+
+        </div>
+
+        <h2 class="title2 semibold mb-m">Почему вероятна индивидуальность?</h2>
+        <div class="d-flex direction-col gap-s">
+
+          <div class="input-radio">
+            <input id="sample4" type="radio" name="sample2" checked>
+            <label for="sample4">Бесспорно, октавер трансформирует прослеживается во многих экспериментах</label>
+          </div>
+          <div class="input-radio">
+            <input id="sample5" type="radio" name="sample2">
+            <label for="sample5">Коммунизм символизирует пингвин</label>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="row gap-l mb-l">
+
+      <!-- ======================== ALERTS ======================== -->
+      <div class="col-l-2 border-1 p-l">
+        <h2 class="mb-l">Alerts</h2>
+        <div class="col mb-m">
+          <div class="alert">
+            Ошибка
+            <button class="close">Закрыть</button>
+          </div>
+        </div>
+        <div class="col mb-m">
+          <div class="alert error">
+            <span>5</span>
+            Ошибка с длинным названием и счётчиком
+            <button class="close">Закрыть</button>
+          </div>
+        </div>
+        <div class="col mb-m">
+          <div class="alert warning">
+            Текст уведомления / предупреждения
+            <button class="close">Закрыть</button>
+          </div>
+        </div>
+        <div class="col mb-m">
+          <div class="alert success">
+            Сообщение об успешном завершении задачи
+            <button class="close">Закрыть</button>
+          </div>
+        </div>
+        <div class="col mb-m">
+          <div class="alert info">
+            Информационный текст
+            <button class="close">Закрыть</button>
+          </div>
+        </div>
+        <div class="col mb-m">
+          <div class="alert info big">
+            Эфемероид поддерживает ротор векторного поля. Личность, отбрасывая подробности, транслирует позитивистский ледостав.
+            <button class="ghost md">Понятно</button>
+          </div>
+        </div>
+        <div class="col mb-m">
+          <div class="alert test1">
+            <button class="close">Закрыть</button>
+            <h1>Название теста</h1>
+            Описание теста. Сублимация высвобождает экстремум функции. Зачин, несмотря на внешние воздействия, редуцирует многолетнемерзлый горизонт ожидания.
+            <div class="btn-wrap">
+              <button class="line1 md test">Напомнить позже</button>
+              <button class="line1 md">Пройти тест</button>
+            </div>
+          </div>
+        </div>
+        <div class="col mb-m">
+          <div class="alert test2">
+            <button class="close">Закрыть</button>
+            <h1>Название теста</h1>
+            Описание теста. Сублимация высвобождает экстремум функции. Зачин, несмотря на внешние воздействия, редуцирует многолетнемерзлый горизонт ожидания.
+            <div class="btn-wrap">
+              <button class="line1 md">Secondary action</button>
+              <button class="main md">Main action</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ======================== BADGES ======================== -->
+      <div class="col-l-2 border-1 p-l">
+        <h2 class="mb-l">Badges</h2>
+        <div class="row mb-s">
+          <div class="col d-flex gap-s">
+            <span class="badge">Default</span>
+            <span class="badge capture">Default</span>
+            <span class="badge label">Default</span>
+          </div>
+        </div>
+        <div class="row mb-s">
+          <div class="col d-flex gap-s">
+            <span class="badge primary">Primary</span>
+            <span class="badge primary capture">Primary</span>
+            <span class="badge primary label">Primary</span>
+          </div>
+        </div>
+        <div class="row mb-s">
+          <div class="col d-flex gap-s">
+            <span class="badge secondary">Secondary</span>
+            <span class="badge secondary capture">Secondary</span>
+            <span class="badge secondary label">Secondary</span>
+          </div>
+        </div>
+        <div class="row mb-s">
+          <div class="col d-flex gap-s">
+            <span class="badge error">Error</span>
+            <span class="badge error capture">Error</span>
+            <span class="badge error label">Error</span>
+          </div>
+        </div>
+        <div class="row mb-s">
+          <div class="col d-flex gap-s">
+            <span class="badge success">Success</span>
+            <span class="badge success capture">Success</span>
+            <span class="badge success label">Success</span>
+          </div>
+        </div>
+
+        <div class="row mb-s mt-l">
+          <div class="col d-flex gap-s">
+            <span class="badge bordered">Default</span>
+            <span class="badge bordered capture">Default</span>
+            <span class="badge bordered label">Default</span>
+          </div>
+        </div>
+        <div class="row mb-s">
+          <div class="col d-flex gap-s">
+            <span class="badge bordered primary">Primary</span>
+            <span class="badge bordered primary capture">Primary</span>
+            <span class="badge bordered primary label">Primary</span>
+          </div>
+        </div>
+        <div class="row mb-s">
+          <div class="col d-flex gap-s">
+            <span class="badge bordered secondary">Secondary</span>
+            <span class="badge bordered secondary capture">Secondary</span>
+            <span class="badge bordered secondary label">Secondary</span>
+          </div>
+        </div>
+        <div class="row mb-s">
+          <div class="col d-flex gap-s">
+            <span class="badge bordered error">Error</span>
+            <span class="badge bordered error capture">Error</span>
+            <span class="badge bordered error label">Error</span>
+          </div>
+        </div>
+        <div class="row mb-s">
+          <div class="col d-flex gap-s">
+            <span class="badge bordered success">Success</span>
+            <span class="badge bordered success capture">Success</span>
+            <span class="badge bordered success label">Success</span>
+          </div>
+        </div>
+
+        <div class="row mb-s mt-l">
+          <div class="col">
+            <p class="text regular mb-s">Example heading <span class="badge bordered label">Default</span></p>
+            <p class="headline2 regular mb-s">Example heading <span class="badge bordered capture">Default</span></p>
+            <p class="headline1 regular">Example heading <span class="badge bordered text">Default</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row gap-l">
+
+      <!-- ======================== TOOLTIPS ======================== -->
+      <div class="col-l-2 border-1 p-l">
+        <h2 class="mb-l">Tooltips</h2>
+        <div class="row">
+          <div class="col">
+            <div class="row mb-l">
+              <div class="col-2">
+                <div class="tooltip bl">
+                  Упражнение №1
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="tooltip">
+                  Упражнение №2
+                </div>
+              </div>
+            </div>
+            <div class="row mb-l">
+              <div class="col-2">
+                <div class="tooltip bc">
+                  Упражнение №3
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="tooltip tc">
+                  Упражнение №4
+                </div>
+              </div>
+            </div>
+            <div class="row mb-l">
+              <div class="col-2">
+                <div class="tooltip br">
+                  Упражнение №5
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="tooltip tr">
+                  Упражнение №6
+                </div>
+              </div>
+            </div>
+            <div class="row mb-l">
+              <div class="tooltip left">
+                1. Эмпирический стиль менеджмента
+              </div>
+            </div>
+            <div class="row mb-l">
+              <div class="tooltip right">
+                1. Эмпирический стиль менеджмента
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="row mb-l">
+              <div class="tooltip">
+                Здравый смысл изящно сохраняет сегмент рынка, что-то подобное можно встретить в работах Ауэрбаха и Тандлера. Ратушная площадь, на первый взгляд, притягивает дуализм.
+              </div>
+            </div>
+            <div class="row">
+              <div class="tooltip2">
+                Здравый смысл изящно сохраняет сегмент рынка, что-то подобное можно встретить в работах Ауэрбаха и Тандлера. Ратушная площадь, на первый взгляд, притягивает дуализм.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ======================== BARS ======================== -->
+      <div class="col-l-2 border-1 p-l">
+        <h2 class="mb-l">Bars</h2>
+        <div class="container p-l mb-m border-2">
+          <div class="col mb-l">
+            <div class="wrap">
+              <div class="bar lg">
+                <div class="fill" style="width: 15%"></div>
+              </div>
+              <span class="counter-in">Идёт загрузка</span>
+            </div>
+          </div>
+          <div class="col mb-l">
+            <div class="wrap">
+              <div class="bar lg">
+                <div class="fill" style="width: 55%"></div>
+              </div>
+              <span class="counter-in">Идёт загрузка</span>
+            </div>
+          </div>
+          <div class="col mb-l">
+            <div class="wrap">
+              <div class="bar lg">
+                <div class="fill" style="width: 90%"></div>
+              </div>
+              <span class="counter-in">Идёт загрузка</span>
+            </div>
+          </div>
+          <div class="col">
+            <div class="wrap">
+              <div class="bar lg">
+                <div class="fill" style="width: 100%"></div>
+              </div>
+              <span class="counter-in">Загрузка завершена</span>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-m">
+          <div class="col-l-2 gap-l p-l border-2">
+            <div class="row mb-l">
+              <div class="wrap">
+                <div class="bar">
+                  <div class="fill" style="width: 1%"></div>
+                </div>
+                <span class="counter-out">1%</span>
+              </div>
+            </div>
+            <div class="row mb-l">
+              <div class="wrap">
+                <div class="bar">
+                  <div class="fill" style="width: 30%"></div>
+                </div>
+                <span class="counter-out">30%</span>
+              </div>
+            </div>
+            <div class="row mb-l">
+              <div class="wrap">
+                <div class="bar">
+                  <div class="fill" style="width: 80%"></div>
+                </div>
+                <span class="counter-out">80%</span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="wrap">
+                <div class="bar">
+                  <div class="fill" style="width: 100%"></div>
+                </div>
+                <span class="counter-out">100%</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-l-2 gap-l p-l border-2">
+            <div class="row mb-l">
+              <div class="wrap">
+                <div class="bar md">
+                  <div class="fill" style="width: 1%"></div>
+                </div>
+                <span class="counter-out">1%</span>
+              </div>
+            </div>
+            <div class="row mb-l">
+              <div class="wrap">
+                <div class="bar md">
+                  <div class="fill" style="width: 10%"></div>
+                </div>
+                <span class="counter-out">10%</span>
+              </div>
+            </div>
+            <div class="row mb-l">
+              <div class="wrap">
+                <div class="bar md">
+                  <div class="fill" style="width: 60%"></div>
+                </div>
+                <span class="counter-out">60%</span>
+              </div>
+            </div>
+            <div class="row mb-l">
+              <div class="wrap">
+                <div class="bar md">
+                  <div class="fill" style="width: 90%"></div>
+                </div>
+                <span class="counter-out">90%</span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="wrap">
+                <div class="bar md">
+                  <div class="fill" style="width: 100%"></div>
+                </div>
+                <span class="counter-out completed">100%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+@import "../variables";
+
+@mixin select () {
+  display: flex;
+  flex-direction: column;
+
+  .label-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  label {
+    font-size: var(--select-label-font-size);
+    font-weight: var(--select-label-font-weight);
+    line-height: var(--select-label-line-height);
+    color: var(--select-label-text-color);
+  }
+
+  select {
+    appearance: none;
+    width: 100%;
+    max-height: var(--select-height);
+    min-width: var(--select-min-width);
+    color: var(--select-text-color);
+    background-color: var(--select-bg-color);
+    background-image: var(--select-arrow);
+    background-repeat: no-repeat;
+    background-position: center right var(--select-padding-top);
+    border: var(--select-border-width) var(--select-border-style) var(--select-border-color);
+    border-radius: var(--select-border-radius);
+    font-size: var(--select-font-size);
+    font-weight: var(--select-font-weight);
+    line-height: var(--select-line-height);
+    padding: var(--select-padding-top) var(--select-padding-right) var(--select-padding-bottom) var(--select-padding-left);
+    transform: rotate(0deg);
+    transition: var(--select-transition);
+    outline: none;
+  }
+
+  option {
+    background: var(--select-option-bg-color);
+    font-size: var(--select-option-font-size);
+    font-weight: var(--select-option-font-weight);
+    line-height: var(--select-option-line-height);
+  }
+
+  &.error {
+    select {
+      background-color: var(--select-bg-color-error);
+      border-color: var(--select-border-color-error);
+    }
+
+    .err-message {
+      display: inline-block;
+      color: var(--select-text-color-error);
+      font-size: var(--select-font-size-error);
+      font-weight: var(--select-label-font-weight);
+      line-height: var(--select-label-line-height);
+      text-align: right;
+      max-width: 60%;
+    }
+  }
+}
